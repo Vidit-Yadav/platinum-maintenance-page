@@ -1,32 +1,28 @@
-# React + TypeScript + Vite
+# Platinum Trucking - Site Under Maintenance
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A full-screen animated "Site Under Maintenance" page for logistics and trucking brand **Platinum Trucking**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Class 8 Semi-Truck**: Centered heavy-duty modern conventional cab tractor-trailer with aerodynamic sleeper, chrome stacks, grille, and official Platinum Trucking vector trailer branding.
+- **3D Perspective Revolving Wheels**: All 5 visible wheels revolve continuously on their own axes in 3D perspective with Alcoa 10-hole ventilation cutouts, chrome lug nut rings, and sweeping specular sunlight reflections.
+- **Highway Motion Dynamics**: Subtle highway suspension bounce and road speed shimmer underneath the contact patches.
+- **Watermark & Backdrop**: Full-height "404" typography watermark with smooth vertical gradient masking and mobile vertical scale protection.
+- **Tech Stack**: React 19, Vite, Tailwind CSS, TypeScript.
 
-## React Compiler
+## Live Deployment
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Vercel**: [https://platinum-maintenance-page.vercel.app](https://platinum-maintenance-page.vercel.app)
+- **GitHub**: [https://github.com/Vidit-Yadav/platinum-maintenance-page](https://github.com/Vidit-Yadav/platinum-maintenance-page)
 
-## Expanding the Oxlint configuration
+## Local Development
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Build for production:
+```bash
+npm run build
+```

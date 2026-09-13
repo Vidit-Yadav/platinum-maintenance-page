@@ -1,5 +1,3 @@
-import { useState, useEffect, useRef } from 'react';
-
 interface WheelConfig {
   id: string;
   name: string;
@@ -107,79 +105,58 @@ const WHEELS: WheelConfig[] = [
 ];
 
 export default function App() {
-  const [scaleY, setScaleY] = useState(1);
-  const textRef = useRef<HTMLDivElement>(null);
-
-  // Responsive scale calculation with mobile protection against vertical distortion
-  useEffect(() => {
-    const updateScale = () => {
-      if (textRef.current && textRef.current.offsetHeight > 0) {
-        const isMobile = window.innerWidth < 640;
-        if (isMobile) {
-          setScaleY(1.0);
-        } else {
-          const rawRatio = window.innerHeight / (textRef.current.offsetHeight * 1.6);
-          setScaleY(Math.min(1.25, Math.max(0.85, rawRatio)));
-        }
-      }
-    };
-
-    updateScale();
-    window.addEventListener('resize', updateScale);
-    return () => window.removeEventListener('resize', updateScale);
-  }, []);
-
   return (
-    <main className="relative w-full h-screen min-h-[100dvh] overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#FF8233] to-[#FDAC55] select-none">
-      {/* BACKGROUND "404" TEXT EFFECT WITH MOBILE CLAMPING */}
-      <div
-        className="absolute inset-0 pointer-events-none flex items-center justify-center opacity-80 overflow-hidden"
-        style={{
-          WebkitMaskImage: 'linear-gradient(to bottom, black 35%, transparent 95%)',
-          maskImage: 'linear-gradient(to bottom, black 35%, transparent 95%)',
-        }}
-      >
-        <div className="relative flex items-center justify-center w-full max-w-7xl">
-          {/* Centered 404 Text */}
+    <main className="relative w-full h-[100dvh] min-h-[100dvh] max-h-[100dvh] overflow-hidden flex flex-col justify-between bg-gradient-to-b from-[#FF8233] to-[#FDAC55] select-none py-4 sm:py-6 md:py-8 px-3 sm:px-6">
+      {/* TOP HEADER: Subtle System Status Badge */}
+      <header className="relative z-30 flex items-center justify-center pointer-events-none pt-1 sm:pt-2">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-[11px] sm:text-xs font-semibold tracking-wider uppercase shadow-sm">
+          <span className="w-2 h-2 rounded-full bg-[#FF5230] animate-pulse" />
+          <span>Platinum Trucking • Under Maintenance</span>
+        </div>
+      </header>
+
+      {/* CENTER STAGE: Perfectly Co-Aligned 404 Watermark, White Oval Backdrop, and Animated Truck */}
+      <div className="relative flex-1 w-full max-w-7xl mx-auto flex items-center justify-center pointer-events-none my-auto">
+        {/* 1. ATMOSPHERIC "404" WATERMARK - Centered directly behind the truck with top crown visibility */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden select-none"
+          style={{
+            maskImage: 'linear-gradient(to bottom, black 25%, transparent 68%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 25%, transparent 68%)',
+          }}
+        >
           <div
-            ref={textRef}
-            className="text-white font-black leading-none tracking-tighter whitespace-nowrap"
+            className="text-white font-black leading-none tracking-tighter select-none whitespace-nowrap opacity-35 sm:opacity-50"
             style={{
-              fontSize: 'clamp(160px, 36vw, 720px)',
-              transform: `scale(1.12, ${scaleY * 1.25})`,
-              transformOrigin: 'center',
+              fontSize: 'clamp(140px, 34vw, 540px)',
+              transform: 'scale(1.05, 1.2)',
             }}
           >
             404
           </div>
-
-          {/* White Oval Backdrop over the 404 text */}
-          <div
-            className="absolute bg-white rounded-full h-[20vh] sm:h-[26vh] md:h-[48vh] pointer-events-none"
-            style={{
-              width: 'clamp(140px, 24vw, 420px)',
-              transform: `scaleY(${scaleY})`,
-              transformOrigin: 'center',
-            }}
-          />
         </div>
-      </div>
 
-      {/* CENTER PHOTOREALISTIC CLASS 8 PLATINUM TRUCKING LONG-HAUL MODEL */}
-      <div
-        className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 px-2 sm:px-4"
-        style={{ marginTop: 'calc(-5vh - 20px)' }}
-      >
-        <div className="w-[96vw] max-w-[540px] sm:w-[82vw] sm:max-w-none md:w-[72vw] lg:w-[64vw] flex flex-col items-center justify-center relative">
-          {/* Photorealistic Truck Assembly with Highway Suspension Vibration */}
+        {/* 2. LUMINOUS WHITE OVAL BACKDROP - Embraces the entire truck body with a soft radiant glow */}
+        <div
+          className="absolute rounded-[100%] bg-white pointer-events-none"
+          style={{
+            width: 'clamp(300px, 94vw, 840px)',
+            height: 'clamp(180px, 50vw, 400px)',
+            boxShadow: '0 0 50px 15px rgba(255, 255, 255, 0.45), 0 20px 40px rgba(0, 0, 0, 0.08)',
+          }}
+        />
+
+        {/* 3. HEROIC CLASS 8 SEMI-TRUCK ASSEMBLY WITH 3D PERSPECTIVE REVOLVING WHEELS */}
+        <div className="relative w-[96vw] max-w-[480px] sm:w-[84vw] sm:max-w-none md:w-[72vw] lg:w-[62vw] flex flex-col items-center justify-center z-10">
+          {/* Suspension vibration */}
           <div className="relative w-full animate-road-drive-bounce">
-            {/* Natural Contact Shadow directly under tires */}
+            {/* Ground Contact Shadow */}
             <div
-              className="absolute -bottom-2 sm:-bottom-3 left-[4%] right-[4%] h-[20px] sm:h-[26px] bg-black/45 rounded-[100%] blur-md pointer-events-none animate-shadow-pulse"
+              className="absolute -bottom-2 sm:-bottom-3 left-[4%] right-[4%] h-[18px] sm:h-[26px] bg-black/45 rounded-[100%] blur-md pointer-events-none animate-shadow-pulse"
               style={{ transformOrigin: 'center' }}
             />
 
-            {/* Pavement speed shimmer underneath contact patches (truck moving in place effect) */}
+            {/* Pavement speed blur stream (truck moving in place sensation) */}
             <div
               className="absolute -bottom-1 left-[14%] right-[10%] h-[10px] overflow-hidden pointer-events-none opacity-30 blur-[1px]"
               style={{
@@ -399,11 +376,14 @@ export default function App() {
         </div>
       </div>
 
-      {/* BOTTOM CONTENT: Maintenance Notice Only */}
-      <footer className="relative z-30 mt-auto pb-10 sm:pb-16 flex flex-col items-center text-center px-6 pointer-events-none">
-        <h1 className="text-white text-lg sm:text-xl md:text-2xl font-semibold tracking-wide max-w-xl drop-shadow-sm">
-          Our site is under maintenance. We'll be back soon.
+      {/* BOTTOM FOOTER: Clean, Prominent Responsive Notice */}
+      <footer className="relative z-30 pb-4 sm:pb-8 flex flex-col items-center text-center px-4 pointer-events-none max-w-lg mx-auto">
+        <h1 className="text-white text-lg sm:text-2xl md:text-3xl font-bold tracking-tight drop-shadow-md">
+          Our site is under maintenance.
         </h1>
+        <p className="text-white/90 text-xs sm:text-sm md:text-base font-medium mt-1 drop-shadow-sm">
+          We'll be back soon.
+        </p>
       </footer>
     </main>
   );

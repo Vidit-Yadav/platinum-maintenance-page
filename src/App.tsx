@@ -122,16 +122,14 @@ export default function App() {
         <div
           className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
           style={{
-            maskImage: 'linear-gradient(to bottom, black 30%, transparent 92%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 30%, transparent 92%)',
+            maskImage: 'linear-gradient(to bottom, black 35%, rgba(0,0,0,0.85) 62%, transparent 92%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 35%, rgba(0,0,0,0.85) 62%, transparent 92%)',
           }}
         >
           <div
-            className="font-black leading-none tracking-[-0.05em] whitespace-nowrap select-none pointer-events-none text-white/25 drop-shadow-sm"
+            className="font-black leading-none tracking-[-0.05em] whitespace-nowrap select-none pointer-events-none text-white/75 sm:text-white/85 drop-shadow-md text-[46vw] sm:text-[44vw] lg:text-[45vw] xl:text-[46vw]"
             style={{
-              fontSize: 'clamp(160px, 32vw, 560px)',
-              WebkitTextStroke: 'clamp(1.2px, 0.22vw, 2.5px) rgba(255, 255, 255, 0.45)',
-              transform: 'scaleY(1.08)',
+              transform: 'translateY(-5%) scaleY(1.06)',
             }}
           >
             404

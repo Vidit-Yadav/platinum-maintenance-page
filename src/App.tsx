@@ -16,37 +16,38 @@ interface WheelConfig {
   hub_r: number;
 }
 
+// Sub-pixel measured wheel axle centers and 3D perspective dimensions
 const WHEELS: WheelConfig[] = [
   {
     id: 'front',
     name: 'Front Steer Wheel',
-    cx: 448,
-    cy: 590,
-    tilt: -3.5,
-    aspect: 0.62,
-    r_tire: 102,
-    r_rim_outer: 62,
-    r_rim_inner: 28,
-    r_holes: 45,
-    hole_w: 5.0,
-    hole_h: 8.0,
-    r_lugs: 26,
-    lug_r: 2.2,
-    hub_r: 18,
+    cx: 468,
+    cy: 595,
+    tilt: -4.0,
+    aspect: 0.618,
+    r_tire: 98,
+    r_rim_outer: 55,
+    r_rim_inner: 24,
+    r_holes: 40,
+    hole_w: 4.8,
+    hole_h: 7.5,
+    r_lugs: 23,
+    lug_r: 2.0,
+    hub_r: 16,
   },
   {
     id: 'tractor1',
     name: 'Tractor Drive Wheel 1',
-    cx: 838,
-    cy: 568,
+    cx: 828,
+    cy: 576,
     tilt: -1.5,
     aspect: 0.565,
     r_tire: 72,
-    r_rim_outer: 45,
+    r_rim_outer: 46,
     r_rim_inner: 20,
-    r_holes: 32,
+    r_holes: 33,
     hole_w: 3.6,
-    hole_h: 6.0,
+    hole_h: 5.8,
     r_lugs: 18,
     lug_r: 1.6,
     hub_r: 13,
@@ -54,16 +55,16 @@ const WHEELS: WheelConfig[] = [
   {
     id: 'tractor2',
     name: 'Tractor Drive Wheel 2',
-    cx: 899,
-    cy: 564,
+    cx: 889,
+    cy: 570,
     tilt: -1.5,
     aspect: 0.568,
     r_tire: 70,
-    r_rim_outer: 43,
+    r_rim_outer: 44,
     r_rim_inner: 19,
-    r_holes: 30,
+    r_holes: 31,
     hole_w: 3.4,
-    hole_h: 5.6,
+    hole_h: 5.5,
     r_lugs: 17,
     lug_r: 1.5,
     hub_r: 12,
@@ -71,12 +72,12 @@ const WHEELS: WheelConfig[] = [
   {
     id: 'trailer1',
     name: 'Trailer Tandem Wheel 1',
-    cx: 1203,
-    cy: 548,
+    cx: 1198,
+    cy: 552,
     tilt: -1.0,
     aspect: 0.529,
     r_tire: 56,
-    r_rim_outer: 33,
+    r_rim_outer: 34,
     r_rim_inner: 14,
     r_holes: 24,
     hole_w: 2.7,
@@ -88,12 +89,12 @@ const WHEELS: WheelConfig[] = [
   {
     id: 'trailer2',
     name: 'Trailer Tandem Wheel 2',
-    cx: 1240,
-    cy: 546,
+    cx: 1236,
+    cy: 550,
     tilt: -1.0,
     aspect: 0.515,
     r_tire: 54,
-    r_rim_outer: 32,
+    r_rim_outer: 33,
     r_rim_inner: 13,
     r_holes: 23,
     hole_w: 2.5,
@@ -115,44 +116,38 @@ export default function App() {
         </div>
       </header>
 
-      {/* CENTER STAGE: Perfectly Co-Aligned 404 Watermark, White Oval Backdrop, and Animated Truck */}
+      {/* CENTER STAGE: High-End 404 Typography Watermark, Lower Ground Platform, and Heroic Truck */}
       <div className="relative flex-1 w-full max-w-7xl mx-auto flex items-center justify-center pointer-events-none my-auto">
-        {/* 1. ATMOSPHERIC "404" WATERMARK - Centered directly behind the truck with top crown visibility */}
+        {/* 1. HIGH-END EXPERT DISPLAY "404" TYPOGRAPHY WATERMARK */}
         <div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden select-none"
+          className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
           style={{
-            maskImage: 'linear-gradient(to bottom, black 25%, transparent 68%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, black 25%, transparent 68%)',
+            maskImage: 'linear-gradient(to bottom, black 30%, transparent 92%)',
+            WebkitMaskImage: 'linear-gradient(to bottom, black 30%, transparent 92%)',
           }}
         >
           <div
-            className="text-white font-black leading-none tracking-tighter select-none whitespace-nowrap opacity-35 sm:opacity-50"
+            className="font-black leading-none tracking-[-0.05em] whitespace-nowrap select-none pointer-events-none text-white/25 drop-shadow-sm"
             style={{
-              fontSize: 'clamp(140px, 34vw, 540px)',
-              transform: 'scale(1.05, 1.2)',
+              fontSize: 'clamp(160px, 32vw, 560px)',
+              WebkitTextStroke: 'clamp(1.2px, 0.22vw, 2.5px) rgba(255, 255, 255, 0.45)',
+              transform: 'scaleY(1.08)',
             }}
           >
             404
           </div>
         </div>
 
-        {/* 2. LUMINOUS WHITE OVAL BACKDROP - Embraces the entire truck body with a soft radiant glow */}
-        <div
-          className="absolute rounded-[100%] bg-white pointer-events-none"
-          style={{
-            width: 'clamp(300px, 94vw, 840px)',
-            height: 'clamp(180px, 50vw, 400px)',
-            boxShadow: '0 0 50px 15px rgba(255, 255, 255, 0.45), 0 20px 40px rgba(0, 0, 0, 0.08)',
-          }}
-        />
-
-        {/* 3. HEROIC CLASS 8 SEMI-TRUCK ASSEMBLY WITH 3D PERSPECTIVE REVOLVING WHEELS */}
-        <div className="relative w-[96vw] max-w-[480px] sm:w-[84vw] sm:max-w-none md:w-[72vw] lg:w-[62vw] flex flex-col items-center justify-center z-10">
+        {/* 2. HEROIC CLASS 8 SEMI-TRUCK ASSEMBLY WITH SMART BRAND PAINT & REVOLVING WHEELS */}
+        <div className="relative w-[96vw] max-w-[480px] sm:w-[84vw] sm:max-w-none md:w-[74vw] lg:w-[65vw] flex flex-col items-center justify-center z-10">
           {/* Suspension vibration */}
           <div className="relative w-full animate-road-drive-bounce">
-            {/* Ground Contact Shadow */}
+            {/* Lower Ground Stage Oval below truck */}
+            <div className="absolute -bottom-3 sm:-bottom-5 left-[2%] right-[2%] h-[28px] sm:h-[42px] rounded-[100%] bg-white/60 blur-md pointer-events-none" />
+
+            {/* Ground Contact Shadow under tires */}
             <div
-              className="absolute -bottom-2 sm:-bottom-3 left-[4%] right-[4%] h-[18px] sm:h-[26px] bg-black/45 rounded-[100%] blur-md pointer-events-none animate-shadow-pulse"
+              className="absolute -bottom-1.5 sm:-bottom-2.5 left-[4%] right-[4%] h-[16px] sm:h-[22px] bg-black/45 rounded-[100%] blur-md pointer-events-none animate-shadow-pulse"
               style={{ transformOrigin: 'center' }}
             />
 
@@ -170,7 +165,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Pristine Cutout Photorealistic Truck */}
+            {/* Photorealistic Class 8 Truck with Smart Brand Paint Job */}
             <img
               src="/platinum_truck_photoreal.png"
               alt="Platinum Trucking Class 8 Heavy-Duty Semi Truck"
